@@ -1,0 +1,11 @@
+<div class="body">
+    <h1>{{title}}</h1>
+    <!-- Aquí el input se le añade un identificador (#number) el cual se toma como valor cada que se hace click en el submit -->
+    <label for="number">Ingrese su número: </label><input type="number" #number>
+    <!-- Este submit lo que hace es que cada que se clickea, toma al #number y lo manda como parametro al método objectier() -->
+    <input type="submit" value="Iniciar" (click)="objectier(number)">
+    <ul>
+        <!-- Este li tiene la directiva ngFor que dice que por cada objeto dentro de arr va a crear un li y comprobará si una de las propiedades de tipo booleana que tienen es true y si esto se cumple, entonces le asigna una simple clase -->
+        <li *ngFor="let iteration of arr;"  [ngClass] = "{'green': iteration.three == true, 'red': iteration.five == true, 'blue': iteration.seven == true}">{{iteration.message}}</li>
+    </ul>
+</div>
